@@ -1,9 +1,9 @@
 git init
 git add Lab1/*
 git commit
-git config --global user.email emevig@gmail.com
+git config --global user.email login@gmail.com
 git commit -m "first commit from terminal"
-git remote add origin https://github.com/axal25/WildflyLabs
+git remote add origin https://github.com/user_name/repository_name
 git remote -v
 git push -u origin master
 git pull origin master
