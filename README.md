@@ -1,7 +1,9 @@
 # WildflyLabs
 Wildfly 14 / Java EE 1.8 repository for SOA Labs
 
-##Deployment info: 
+## Using JBoss Dev Studio (Red Hat)
+
+## Deployment info: 
   
  - Java 1.8 
  
@@ -10,21 +12,21 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
  - Config: Full HA (.xml) 
  
   
-##Project properties: 
+## Project properties: 
   
- - Project Properties > Project facets > Java 1.8 
+### Project Properties > Project facets > Java 1.8 
  
- - Project Properties > Java Compiler > Enable project specific settings > ... 
+### Project Properties > Java Compiler > Enable project specific settings > ... 
  
    Compiler compliance level: 1.8, Use default compliance settings: checked 
  
- - Project Properties > Java Build Path > JRE System Library [java-8-openjdk-amd64] > Alternate JRE > Installed JREs > Add > ... 
+### Project Properties > Java Build Path > JRE System Library [java-8-openjdk-amd64] > Alternate JRE > Installed JREs > Add > ... 
  
    (Name: java-8-openjdk-amd64; Location: /usr/lib/jvm/java-8-openjdk-amd64; Type: Standard VM) 
  
- - Deployment Assembly > (Source: /src/; Deplyo Path: WEB-INF/classes) 
+### Deployment Assembly > (Source: /src/; Deplyo Path: WEB-INF/classes) 
  
- - Other deployments: 
+### Other deployments: 
  
    (Source: Maven Dependencies; WEB-INF/lib ) 
  
@@ -33,9 +35,9 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
    (Source: /target/m2e-wtp/web-resouorces; Deploy path: / ) 
  
   
-##What to do when *.war file doesn't change name: 
+## What to do when *.war file doesn't change name: 
   
- 1. Open pom.xml and add: 
+###1. Open pom.xml and add: 
  
    <project ...> 
  
@@ -49,7 +51,7 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
  
    </project> 
  
- 2. Go to: 
+###2. Go to: 
  
    ~/jboss_dev_studio_workspace/Lab1/Lab1_Task7_hello1/.settings/org.eclipse.wst.common.component 
  
