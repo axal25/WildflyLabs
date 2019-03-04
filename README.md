@@ -38,7 +38,7 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
 ## What to do when *.war file doesn't change name: 
   
 ### 1. Open pom.xml and add: 
- 
+```
    <project ...> 
  
      ... 
@@ -50,10 +50,10 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
      </build> 
  
    </project> 
- 
+``` 
 ### 2. Go to: 
  
-#### ~/jboss_dev_studio_workspace/Lab1/Lab1_Task7_hello1/.settings/org.eclipse.wst.common.component 
+   ~/jboss_dev_studio_workspace/Lab1/Lab1_Task7_hello1/.settings/org.eclipse.wst.common.component 
  
 #### check line: <wb-module deploy-name="hello1"> 
  
