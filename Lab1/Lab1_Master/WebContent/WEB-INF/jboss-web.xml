@@ -1,0 +1,3 @@
+<jboss-web>
+	<context-root>/lab1</context-root>
+</jboss-web>

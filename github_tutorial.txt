@@ -1,0 +1,9 @@
+git init
+git add Lab1/*
+git commit
+git config --global user.email emevig@gmail.com
+git commit -m "first commit from terminal"
+git remote add origin https://github.com/axal25/WildflyLabs
+git remote -v
+git push -u origin master
+git pull origin master

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelets Hello Greeting</title>
+    </h:head>
+    <style>
+    h1.myClass {
+    	font-size: 12px;
+    	color: red;
+    	bg-color: powderblue;
+    }
+    h2.error_info {
+    	font-size: 24px;
+    	color: red;
+    	background-color: powderblue;
+    }
+    </style>
+    <h:body> 
+    	<h1 class="myClass"> source https://javaee.github.io/tutorial/webapp005.html <br></br> source files: https://github.com/javaee/tutorial-examples </h1>
+    	<h2 class="error_info"> Error Page for unhandled exceptions </h2>
+    	<h6> for this file to be a 'error-page' through web.xml it has to be in /webapp/ folder like so: <br></br>/src/main/webapp/default_e_page.xhtml</h6>
+    	<h2 class="myClass"> please visit url: </h2>
+    	<a href="http://localhost:8080/hello2/directory">Available urls for this project</a>
+    </h:body>
+</html>
+

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelets Hello Greeting</title>
+	    <style>
+		    h1.myClass {
+		    	font-size: 12px;
+		    	color: red;
+		    }
+		    p.white_space {
+			    white-space:pre;
+			}
+	    </style>
+    </h:head>
+    <h:body> 
+    	<h1 class="myClass"> source https://javaee.github.io/tutorial/webapp005.html <br></br> source files: https://github.com/javaee/tutorial-examples </h1>
+    	<h6> for this file to be a 'welcoming-file' through web.xml it has to be in /WebContent/ folder like so: <br></br>/WebContent/index.xhtml</h6>
+    	
+        <h2>To do:</h2>
+        <p>
+	   		<a href="https://javaee.github.io/tutorial/webapp005.html"> Declaring Resource References </a> <br></br>
+	   		<a href="https://wiki.stosowana.pl/lib/exe/fetch.php?media=przedmioty:vi_semestr:soa:laby:2015-16:rogus:lab1_wstep.pdf"> Lab1 Cw.8+ </a> <br></br>
+	   		<a href="https://docs.oracle.com/javaee/6/tutorial/doc/javaeetutorial6.pdf"> JavaEE 6 tutorial (100 str.) </a> <br></br>
+	   		<a href="https://docs.oracle.com/cd/E19798-01/821-1841/bnadx/index.html"> JavaEE 6 tutorial HTML </a>
+   		</p>
+    	
+    	<h2> Resource references</h2>
+    	<p> 
+	    	The <strong>@Resource</strong> annotation is used to declare a reference to a resource, such as a data source, an enterprise bean, or an environment entry. <br></br>
+	    	The <strong>@Resource</strong> annotation is specified on a class, a method, or a field. <br></br> 
+	    	The container is responsible for injecting references to resources declared by the <strong>@Resource</strong> annotation and mapping it to the proper JNDI resources. <br></br>
+			In the following example, the <strong>@Resource</strong> annotation is used to inject a data source into a component that needs to make a connection to the data source, <br></br>
+			as is done when using JDBC technology to access a relational database 
+		</p>
+    	<p class="white_space"> <code>
+	    	@Resource javax.sql.DataSource catalogDS;
+			public getProductsByCategory() {
+			    // get a connection and execute the query
+			    Connection conn = catalogDS.getConnection();
+			    ... 
+			}
+    	</code>	</p>
+    	
+    	<p>
+		The container injects this data source prior to the component’s being made available to the application. <br></br>
+		The data source JNDI mapping is inferred from the field name, <code style="font-size: 16px">catalogDS</code>, and the type, <code style="font-size: 16px">javax.sql.DataSource</code>. <br></br> <br></br>
+		If you have multiple resources that you need to inject into one component, you need to use the <strong>@Resources</strong> annotation to contain them, <br></br> 
+		as shown by the following example: <br></br>
+    	</p>
+    	<p class="white_space"> <code>
+		@Resources ({
+		    @Resource(name="myDB" type=javax.sql.DataSource.class),
+		    @Resource(name="myMQ" type=javax.jms.ConnectionFactory.class)
+		})
+    	</code> </p>
+    	
+    	<p>
+    		The web application examples in this tutorial use the Java Persistence API to access relational databases. <br></br>
+    		This API does not require you to explicitly create a connection to a data source. <br></br>
+    		Therefore, the examples do not use the <strong>@Resource</strong> annotation to inject a data source. <br></br>
+    		However, this API supports the <strong>@PersistenceUnit</strong> and <strong>@PersistenceContext</strong> annotations for injecting 
+    		<code style="font-size: 16px">EntityManagerFactory</code> and <code style="font-size: 16px">EntityManager</code> instances, respectively. <br></br>
+    		<a href="https://javaee.github.io/tutorial/persistence-basicexamples.html#GIJST">Chapter 41, "Running the Persistence Examples"</a> 
+    		describes these annotations and the use of the Java Persistence API in web applications.
+    		<h1 class="myClass"> https://javaee.github.io/tutorial/persistence-basicexamples.html#GIJST </h1>
+    	</p>
+    	
+    	<p>
+    		The <strong>@WebServiceRef</strong> annotation provides a reference to a web service. <br></br>
+    		The following example shows uses the <strong>@WebServiceRef</strong> annotation to declare a reference to a web service. <br></br> 
+    		WebServiceRef uses the wsdlLocation element to specify the URI of the deployed service’s WSDL file: <br></br>
+    	</p>
+    	
+    	<p class="white_space"> <code>
+		...
+		import javax.xml.ws.WebServiceRef;
+		...
+		public class ResponseServlet extends HTTPServlet {
+		@WebServiceRef(wsdlLocation="http://localhost:8080/helloservice/hello?wsdl")
+		static HelloService service;
+    	</code> </p>
+    	
+    	<h3> Components that can accept resource injections </h3>
+    	<table style="width:100%">
+			<tr>
+				<th> <strong>Component</strong> </th>
+				<th> <strong>Interface/Class</strong> </th> 
+			</tr>
+			<tr>
+				<td> Servlets </td>
+				<td> <code>javax.servlet.Servlet</code> </td>
+			</tr>
+			<tr>
+				<td> <p> </p> </td>
+				<td> <p> </p> </td>
+			</tr>
+			<tr>
+				<td> Servlets filters </td>
+				<td> <code> javax.servlet.ServletFilter </code> </td> 
+			</tr>
+			<tr>
+				<td> <p> </p> </td>
+				<td> <p> </p> </td>
+			</tr>
+			<tr>
+				<td> Event listeners </td>
+				<td> <code> javax.servlet.ServletContextListener </code> </td> 
+			</tr>
+			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.ServletContextAttributeListener </code> </td> 
+			</tr>			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.ServletRequestListener </code> </td> 
+			</tr>
+			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.ServletRequestAttributeListener </code> </td> 
+			</tr>
+			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.HttpSessionListener </code> </td> 
+			</tr>
+			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.HttpSessionAttributeListener </code> </td> 
+			</tr>
+			<tr>
+				<td> </td>
+				<td> <code> javax.servlet.HttpSessionBindingListener </code> </td> 
+			</tr>
+			<tr>
+				<td> <p> </p> </td>
+				<td> <p> </p> </td>
+			</tr>
+			<tr>
+				<td> Managed beans </td>
+				<td> Plain Old Java Objects </td> 
+			</tr>
+		</table>
+    	
+        <br></br>
+        
+        <p>
+			<h4> Further Information about Web Applications </h4>
+			For more information on web applications, see
+		    JavaServer Faces 2.3 specification: <a href="https://jcp.org/en/jsr/detail?id=372">https://jcp.org/en/jsr/detail?id=372</a> <br></br>
+		    Java Servlet 4.0 specification: <a href="https://jcp.org/en/jsr/detail?id=369">https://jcp.org/en/jsr/detail?id=369</a>
+        </p>
+        
+        <br></br>
+    </h:body>
+</html>
+
