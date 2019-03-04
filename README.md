@@ -80,3 +80,8 @@ Wildfly 14 / Java EE 1.8 repository for SOA Labs
  </project-modules> 
 ```
 
+# Credits
+## Tutorial used #1: https://javaee.github.io/tutorial/webapp003.html
+### Source code #1: https://github.com/javaee/tutorial-examples
+   
+
